@@ -9,16 +9,18 @@ class CardsScreen extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return new Swiper(
-      itemBuilder: (BuildContext context, int index) {
-        return CardItem(cardSets[0][index]);
-      },
-      itemCount: cardSets[0].length,
-      loop: false,
-      itemWidth: 300,
-      itemHeight: 400,
+    return Center(
+      child: new Swiper(
+        itemBuilder: (BuildContext context, int index) {
+          return CardItem(cardSets[0][index]);
+        },
+        itemCount: cardSets[0].length,
+        containerHeight: 100,
+        itemWidth: 300,
+        itemHeight: 400,
 
-      layout: SwiperLayout.TINDER,
+        layout: SwiperLayout.STACK,
+      ),
     );
   }
 }

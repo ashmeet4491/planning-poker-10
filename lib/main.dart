@@ -17,9 +17,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Container(
           color: Colors.lightBlueAccent,
-          child: Center(
-            child: Container(child: CardsScreen()),
-          ),
+          child: CardsScreen(),
         ),
       ),
     );

@@ -7,26 +7,25 @@ class CardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-            side: BorderSide(
-              color: Colors.white,
-              width: 5,
-            ),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: BorderSide(
+          color: Colors.white,
+          width: 5,
+        ),
+      ),
+      elevation: 5,
+      color: Colors.blue,
+      child: Center(
+        child: Text(
+          cardValue,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 150,
           ),
-          elevation: 5,
-          color: Colors.blue,
-          child: Center(
-            child: Text(
-              cardValue,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 100,
-              ),
-            ),
-          ),
-        ));
+        ),
+      ),
+    );
   }
 }
