@@ -4,7 +4,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import '../widgets/card_item.dart';
 
 class CardsScreen extends StatelessWidget {
-  List<List<String>> cardSets = const [
+  final List<List<String>> cardSets = const [
     ['?', '0', '1/2', '1', '2', '3', '5', '8', '13', '20', '40', '100', '160']
   ];
   @override
