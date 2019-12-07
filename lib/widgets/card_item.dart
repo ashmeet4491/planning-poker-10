@@ -17,14 +17,42 @@ class CardItem extends StatelessWidget {
       ),
       elevation: 5,
       color: Colors.blue,
-      child: Center(
-        child: Text(
-          cardValue,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 150,
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.lock_open,
+                  size: 30,
+                ),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.star_border,
+                  size: 30,
+                ),
+              ),
+            ],
           ),
-        ),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(
+                bottom: 30,
+              ),
+              child: Center(
+                child: Text(
+                  cardValue,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 150,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
