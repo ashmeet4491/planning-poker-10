@@ -4,13 +4,8 @@ import 'package:provider/provider.dart';
 import '../widgets/custom_app_bar.dart';
 import '../providers/settings.provider.dart';
 
-class SettingsScreen extends StatefulWidget {
-  @override
-  _SettingsScreenState createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  Widget _listItemBuilder(
+class SettingsScreen extends StatelessWidget {
+    Widget _listItemBuilder(
       {@required String title,
       @required String subtitle,
       @required String key,
@@ -43,7 +38,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               key: 'vertical_swipe',
               providerHandler: settingsProvider,
               settings: settings,
-
             )
           ],
         ),
