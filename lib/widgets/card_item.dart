@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/settings.provider.dart';
 
 class CardItem extends StatelessWidget {
   final String cardValue;
@@ -7,6 +10,8 @@ class CardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsProvider = Provider.of<Settings>(context);
+    final Map<String, dynamic> settings = settingsProvider.settings;
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -23,16 +28,28 @@ class CardItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
+                splashColor: Colors.transparent,
                 icon: Icon(
-                  Icons.lock_open,
+                  settings['lock'] == cardValue ? Icons.lock : Icons.lock_open,
                   size: 30,
+                  color: Colors.white,
                 ),
+                onPressed: () {
+                  settingsProvider.lockCard(cardValue);
+                },
               ),
               IconButton(
+                splashColor: Colors.transparent,
                 icon: Icon(
-                  Icons.star_border,
+                  settings['favorite'] == cardValue
+                      ? Icons.star
+                      : Icons.star_border,
                   size: 30,
+                  color: Colors.white,
                 ),
+                onPressed: () {
+                  settingsProvider.changeSettings('favorite', cardValue);
+                },
               ),
             ],
           ),

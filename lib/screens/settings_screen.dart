@@ -10,7 +10,7 @@ class SettingsScreen extends StatelessWidget {
       @required String subtitle,
       @required String key,
       @required providerHandler,
-      @required Map<String, bool>settings}) {
+      @required Map<String, dynamic>settings}) {
     return SwitchListTile(
       title: Text(title),
       subtitle: Text(subtitle),
@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settingsProvider = Provider.of<Settings>(context);
-    final Map<String, bool> settings = settingsProvider.settings;
+    final Map<String, dynamic> settings = settingsProvider.settings;
     return Scaffold(
       appBar: CustomAppBar(title: 'Settings', showIcon:false),
       body: Container(
