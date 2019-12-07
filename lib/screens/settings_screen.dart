@@ -38,6 +38,13 @@ class SettingsScreen extends StatelessWidget {
               key: 'vertical_swipe',
               providerHandler: settingsProvider,
               settings: settings,
+            ),
+             _listItemBuilder(
+              title: 'Loop',
+              subtitle: 'Allow to infinity scrool',
+              key: 'loop',
+              providerHandler: settingsProvider,
+              settings: settings,
             )
           ],
         ),
