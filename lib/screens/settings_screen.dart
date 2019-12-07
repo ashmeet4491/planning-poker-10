@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:planning_poker/widgets/custom_app_bar.dart';
+import 'package:provider/provider.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../providers/settings.provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -7,26 +10,40 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _swipe = true;
+  Widget _listItemBuilder(
+      {@required String title,
+      @required String subtitle,
+      @required String key,
+      @required providerHandler,
+      @required Map<String, bool>settings}) {
+    return SwitchListTile(
+      title: Text(title),
+      subtitle: Text(subtitle),
+      value: settings[key],
+      onChanged: (bool value) {
+        providerHandler.changeSettings(key, value);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final settingsProvider = Provider.of<Settings>(context);
+    final Map<String, bool> settings = settingsProvider.settings;
     return Scaffold(
       appBar: CustomAppBar(Icon(Icons.arrow_back), () {
         Navigator.of(context).pop();
-      }, 'Settings')
-          .build(context),
+      }, 'Settings'),
       body: Container(
         child: Column(
           children: <Widget>[
-            SwitchListTile(
-              title: Text('Vertical swipe'),
-              subtitle: Text('Change default swipe mode'),
-              value: _swipe,
-              onChanged: (bool value) {
-                setState(() {
-                  _swipe = value;
-                });
-              },
+            _listItemBuilder(
+              title: 'Vertical swipe',
+              subtitle: 'Change default swipe mode',
+              key: 'vertical_swipe',
+              providerHandler: settingsProvider,
+              settings: settings,
+
             )
           ],
         ),
