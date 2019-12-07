@@ -15,9 +15,7 @@ class CardsScreen extends StatelessWidget {
     final settingsProvider = Provider.of<Settings>(context);
     final Map<String, bool> settings = settingsProvider.settings;
     return Scaffold(
-      appBar: CustomAppBar(Icon(Icons.settings), () {
-        Navigator.of(context).pushNamed('/settings');
-      }, 'Planning Poker'),
+      appBar: CustomAppBar(),
       body: Container(
         color: Colors.lightBlueAccent,
         child: new Swiper(

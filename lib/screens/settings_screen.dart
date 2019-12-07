@@ -26,9 +26,7 @@ class SettingsScreen extends StatelessWidget {
     final settingsProvider = Provider.of<Settings>(context);
     final Map<String, bool> settings = settingsProvider.settings;
     return Scaffold(
-      appBar: CustomAppBar(Icon(Icons.arrow_back), () {
-        Navigator.of(context).pop();
-      }, 'Settings'),
+      appBar: CustomAppBar(title: 'Settings', showIcon:false),
       body: Container(
         child: Column(
           children: <Widget>[
