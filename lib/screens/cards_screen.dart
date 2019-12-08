@@ -14,26 +14,31 @@ class CardsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final settingsProvider = Provider.of<Settings>(context);
     final Map<String, dynamic> settings = settingsProvider.settings;
-    List<String> cardSet =
-        settings['lock'] == false ? cardSets[0] : [settings['lock']];
     return Scaffold(
       appBar: CustomAppBar(),
       body: Container(
         color: Colors.lightBlueAccent,
-        child: new Swiper(
-          itemBuilder: (BuildContext context, int index) {
-            return CardItem(cardSet[index]);
-          },
-          scrollDirection:
-              settings['vertical_swipe'] ? Axis.vertical : Axis.horizontal,
-          loop: settings['loop'],
-          itemCount: cardSet.length,
-          containerHeight: 100,
-          itemWidth: 300,
-          itemHeight: 400,
-          
-          layout: SwiperLayout.STACK,
-        ),
+        child: settings['lock'] != false
+            ? Container(
+                margin: EdgeInsets.symmetric(
+                  vertical: 128.5,
+                  horizontal: 46.5,
+                ),
+                child: CardItem(settings['lock']),
+              )
+            : new Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return CardItem(cardSets[0][index]);
+                },
+                scrollDirection: settings['vertical_swipe']
+                    ? Axis.vertical
+                    : Axis.horizontal,
+                loop: settings['loop'],
+                itemCount: cardSets[0].length,
+                itemWidth: 300,
+                itemHeight: 400,
+                layout: SwiperLayout.STACK,
+              ),
       ),
     );
   }
