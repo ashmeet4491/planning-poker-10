@@ -5,7 +5,8 @@ class Settings with ChangeNotifier {
     'vertical_swipe': false,
     'loop': true,
     'favorite': '8',
-    'lock': false
+    'lock': false,
+    'alternative_layout':false
   };
   Map<String, dynamic> get settings {
     return {..._settings};

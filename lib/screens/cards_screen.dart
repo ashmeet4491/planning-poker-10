@@ -31,8 +31,9 @@ class CardsScreen extends StatelessWidget {
           containerHeight: 100,
           itemWidth: 300,
           itemHeight: 400,
-          
-          layout: SwiperLayout.STACK,
+          layout: settings['alternative_layout']
+              ? SwiperLayout.STACK
+              : SwiperLayout.TINDER,
         ),
       ),
     );
