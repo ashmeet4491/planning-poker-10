@@ -27,17 +27,20 @@ class CardsScreen extends StatelessWidget {
                     ? Axis.vertical
                     : Axis.horizontal,
                 loop: settings['loop'],
-                itemCount: cardSets[0].length,
-                containerHeight: 100,
+                itemCount: cardSets[0].length,  
                 itemWidth: 300,
                 itemHeight: 400,
                 layout: settings['alternative_layout']
                     ? SwiperLayout.STACK
                     : SwiperLayout.TINDER,
               )
-            : Container(
-                child: CardItem(settings['lock']),
-              ),
+            : Center(
+              child: Container(
+                width:300,
+                height: 400,
+                  child: CardItem(settings['lock']),
+                ),
+            ),
       ),
     );
   }
