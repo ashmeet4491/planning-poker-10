@@ -7,13 +7,13 @@ import '../providers/settings.provider.dart';
 class SettingsScreen extends StatelessWidget {
   Widget _listItemBuilder(
       {@required String title,
-      @required String subtitle,
+      String subtitle,
       @required String key,
       @required providerHandler,
       @required Map<String, dynamic> settings}) {
     return SwitchListTile(
       title: Text(title),
-      subtitle: Text(subtitle),
+      subtitle: subtitle != null ? Text(subtitle) : subtitle,
       value: settings[key],
       onChanged: (bool value) {
         providerHandler.changeSettings(key, value);
@@ -46,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             _listItemBuilder(
               title: 'Alternative layout',
-              subtitle: 'Use stack layout style',
+              // subtitle: '',
               key: 'alternative_layout',
               providerHandler: settingsProvider,
               settings: settings,
