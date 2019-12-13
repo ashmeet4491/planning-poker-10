@@ -38,19 +38,19 @@ class CardItem extends StatelessWidget {
                   settingsProvider.lockCard(cardValue);
                 },
               ),
-              IconButton(
-                splashColor: Colors.transparent,
-                icon: Icon(
-                  settings['favorite'] == cardValue
-                      ? Icons.star
-                      : Icons.star_border,
-                  size: 30,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  settingsProvider.changeSettings('favorite', cardValue);
-                },
-              ),
+              // IconButton(
+              //   splashColor: Colors.transparent,
+              //   icon: Icon(
+              //     settings['favorite'] == cardValue
+              //         ? Icons.star
+              //         : Icons.star_border,
+              //     size: 30,
+              //     color: Colors.white,
+              //   ),
+              //   onPressed: () {
+              //     settingsProvider.changeSettings('favorite', cardValue);
+              //   },
+              // ),
             ],
           ),
           Expanded(
