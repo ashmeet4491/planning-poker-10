@@ -18,15 +18,8 @@ class CardsScreen extends StatelessWidget {
       appBar: CustomAppBar(),
       body: Container(
         color: Colors.lightBlueAccent,
-        child: settings['lock'] != false
-            ? Container(
-                margin: EdgeInsets.symmetric(
-                  vertical: 128.5,
-                  horizontal: 46.5,
-                ),
-                child: CardItem(settings['lock']),
-              )
-            : new Swiper(
+        child: settings['lock'] == false
+            ? new Swiper(
                 itemBuilder: (BuildContext context, int index) {
                   return CardItem(cardSets[0][index]);
                 },
@@ -34,11 +27,20 @@ class CardsScreen extends StatelessWidget {
                     ? Axis.vertical
                     : Axis.horizontal,
                 loop: settings['loop'],
-                itemCount: cardSets[0].length,
+                itemCount: cardSets[0].length,  
                 itemWidth: 300,
                 itemHeight: 400,
-                layout: SwiperLayout.STACK,
-              ),
+                layout: settings['alternative_layout']
+                    ? SwiperLayout.TINDER
+                    : SwiperLayout.STACK,
+              )
+            : Center(
+              child: Container(
+                width:300,
+                height: 400,
+                  child: CardItem(settings['lock']),
+                ),
+            ),
       ),
     );
   }
